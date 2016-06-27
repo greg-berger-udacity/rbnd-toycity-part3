@@ -3,12 +3,13 @@
 class Product
   @@products = []
 
-  attr_reader :title, :price, :stock
+  attr_reader :title, :price, :stock, :brand
 
   def initialize(options={})
     @title = options[:title]
     @price = options[:price]
     @stock = options[:stock]
+    @brand = options[:brand]
     add_to_products
   end
 
@@ -37,7 +38,7 @@ class Product
     @@products.find { |product| product.title == title }
   end
 
-  # I know there's a better way to do this, but not sure what it is
+  # I'm sure there's a better way to do this, but not sure what it is
   def self.in_stock
     products_in_stock = []
     @@products.each do |product|

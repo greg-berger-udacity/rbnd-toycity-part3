@@ -64,3 +64,11 @@ puts transaction2.product == nanoblock # Should return true
 
 walter.purchase(firehouse)
 # Should return OutOfStockError: 'LEGO Firehouse Headquarter' is out of stock.
+
+# Test new functionality: Add brand field
+p0 = Product.new(title: "Iron Man vs. Ultron", price: 22.99, stock: 55, brand: "LEGO")
+puts p0.brand # should print LEGO
+
+# Test new functionality: Add address and email fields to customers
+puts Customer.new(name: "Steve Yobs", address: "1 Infinite Loop", email: "steve@yobs.com").email
+

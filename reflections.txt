@@ -1,0 +1,13 @@
+1. How long did you spend working on this project?
+It took me about 5 hours
+
+2. What was the most rewarding challenge you conquered?
+I didn't watch any of the videos, I just dove right in and used the documentation when necessary. This was pretty challenging! Also, I got stuck on the distinction between static and instance methods.
+
+3. What two additional features did you build? Why?
+I added a brand field to Product.
+I added address and email to Customer.
+Why? Because that whole time I was coding I kept thinking about how these fields were missing. Plus, it was easy!
+
+4. Where do you still have room to grow?
+I need to stop being so lazy!
