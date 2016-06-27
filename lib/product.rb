@@ -29,7 +29,19 @@ class Product
     @@products
   end
 
-  def find_by_title(title)
+  def self.find_by_title(title)
     @@products.find { |product| product.title == title }
   end
+
+  # I know there's a better way to do this, but not sure what it is
+  def self.in_stock
+    products_in_stock = []
+    @@products.each do |product|
+      if product.in_stock?
+        products_in_stock.push product
+      end
+    end
+    products_in_stock
+  end  
+
 end
