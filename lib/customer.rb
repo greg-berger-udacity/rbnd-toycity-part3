@@ -7,6 +7,7 @@ class Customer
 
   def initialize(options={})
     @name = options[:name]
+    @transactions = []
     add_to_customers
   end
 
@@ -19,8 +20,13 @@ class Customer
     end
   end
 
+  def purchase(product)
+    transaction = Transaction.new(self, product)
+    @transactions << transaction
+  end
+
   def self.all
-    @@cusomters
+    @@customers
   end
 
   def self.find_by_name(name)

@@ -25,6 +25,10 @@ class Product
     end
   end
 
+  def do_purchase
+    @stock = @stock - 1
+  end
+
   def self.all
     @@products
   end
