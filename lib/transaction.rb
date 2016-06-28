@@ -8,18 +8,9 @@ class Transaction
   def initialize(customer, product)
     @customer = customer
     @product = product
-    @id = @@transactions.size + 1 # assumes no transactions are deleted
-    add_to_transactions
+    @id = (@@transactions.size > 0) ? @@transactions.map { |transaction| transaction.id }.sort.last + 1 : 1
     product.do_purchase
-  end
-
-  def add_to_transactions
-    if self.product.in_stock?
-      @@transactions << self
-    else  
-      # raise OutOfStockError
-      puts "OutOfStockError"
-    end
+    @@transactions << self
   end
 
   def self.find(id)

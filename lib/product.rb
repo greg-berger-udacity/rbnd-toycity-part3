@@ -22,12 +22,16 @@ class Product
     unless duplicate
       @@products << self
     else
-      # raise DuplicateProductError
+      raise DuplicateProductError
     end
   end
 
   def do_purchase
-    @stock = @stock - 1
+    if @stock > 0
+      @stock = @stock - 1
+    else
+      raise OutOfStockError
+    end
   end
 
   def self.all
@@ -40,13 +44,7 @@ class Product
 
   # I'm sure there's a better way to do this, but not sure what it is
   def self.in_stock
-    products_in_stock = []
-    @@products.each do |product|
-      if product.in_stock?
-        products_in_stock.push product
-      end
-    end
-    products_in_stock
+    @@products.select { |product| product.in_stock? }
   end  
 
 end
