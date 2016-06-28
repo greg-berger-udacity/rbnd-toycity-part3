@@ -18,13 +18,12 @@ class Customer
     unless duplicate
       @@customers << self
     else
-      # raise DuplicateCustomerError
+      raise DuplicateCustomerError
     end
   end
 
   def purchase(product)
-    transaction = Transaction.new(self, product)
-    @transactions << transaction
+    Transaction.new(self, product)
   end
 
   def self.all
